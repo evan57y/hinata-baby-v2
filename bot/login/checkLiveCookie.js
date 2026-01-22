@@ -1,35 +1,78 @@
 const axios = require("axios");
+
+const mahmud = async () => {
+    const base = await axios.get("https://raw.githubusercontent.com/mahmudx7/HINATA/main/baseApiUrl.json");
+    return base.data.mahmud;
+};
+
 /**
- * 
- * @param {string} cookie Cookie string as `c_user=123;xs=123;datr=123;` format
- * @param {string} userAgent User agent string
- * @returns {Promise<Boolean>} True if cookie is valid, false if not
+ * @author MahMUD
+ * @author: do not delete it
  */
-module.exports = async function (cookie, userAgent) {
-	try {
-		const response = await axios({
-			url: 'https://mbasic.facebook.com/settings',
-			method: "GET",
-			headers: {
-				cookie,
-				"user-agent": userAgent || 'Mozilla/5.0 (Linux; Android 12; M2102J20SG) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.0.0 Mobile Safari/537.36',
-				"accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7",
-				"accept-language": "vi,en-US;q=0.9,en;q=0.8",
-				"sec-ch-prefers-color-scheme": "dark",
-				"sec-ch-ua": "\"Chromium\";v=\"112\", \"Microsoft Edge\";v=\"112\", \"Not:A-Brand\";v=\"99\"",
-				"sec-ch-ua-mobile": "?0",
-				"sec-ch-ua-platform": "\"Windows\"",
-				"sec-fetch-dest": "document",
-				"sec-fetch-mode": "navigate",
-				"sec-fetch-site": "none",
-				"sec-fetch-user": "?1",
-				"upgrade-insecure-requests": "1"
-			}
-		});
-		
-		return response.data.includes('/privacy/xcs/action/logging/') || response.data.includes('/notifications.php?') || response.data.includes('href="/login/save-password-interstitial');
-	}
-	catch (e) {
-		return false;
-	}
+
+module.exports = {
+    config: {
+        name: "play",
+        version: "1.7",
+        author: "MahMUD",
+        countDown: 10,
+        role: 0,
+        category: "music",
+        guide: {
+            en: "{pn} [song name]"
+        }
+    },
+
+    onStart: async function ({ api, event, args, message }) {
+        const _0x4b = (function () {
+            const _0xarr = [
+                'YXV0aG9y', 
+                'WW91IGFyZSBub3QgYXV0aG9yaXplZCB0byBjaGFuZ2UgdGhlIGF1dGhvciBuYW1lLg==', 
+                '4p6eIHwgUGxlYXNlIHByb3ZpZGUgYSBzb25nIG5hbWUuXG5cbkV4YW1wbGU6IHBsYXkgIG1vb2Q=', 
+                'cmVwbHk=', 
+                'c2VuZE1lc3NhZ2U=', 
+                'L2FwaS9wbGF5P21haG11ZD0=', 
+                '4pyFIHwgSGVyZSdzIHlvdXIgcmVxdWVzdGVkIHNvbmc6XG7inp4g', 
+                '8J+luWVycm9yLCBDb250YWN0IE1haE1VRC4=' 
+            ];
+            return function (_0xi) {
+                return Buffer.from(_0xarr[_0xi], 'base64').toString();
+            };
+        })();
+
+        const _0xauth = String.fromCharCode(77, 97, 104, 77, 85, 68); 
+        if (this.config.author !== _0xauth) {  
+            return api[_0x4b(4)](_0x4b(1), event.threadID, event.messageID);  
+        }  
+
+        if (!args[0]) {  
+            try { api.setMessageReaction("🥹", event.messageID, () => {}, true); } catch (e) {}
+            return message[_0x4b(3)](_0x4b(2));  
+        }  
+
+        const query = encodeURIComponent(args.join(" "));  
+        const apiUrl = `${await mahmud()}${_0x4b(5)}${query}`;  
+
+        try {  
+            api.setMessageReaction("🐤", event.messageID, () => {}, true);  
+
+            const response = await axios({  
+                method: "GET",  
+                url: apiUrl,  
+                responseType: "stream",
+                headers: { [_0x4b(0)]: _0xauth }
+            });  
+
+            message[_0x4b(3)]({  
+                body: _0x4b(6) + args.join(" "),  
+                attachment: response.data  
+            }, () => {  
+                api.setMessageReaction("🪽", event.messageID, () => {}, true);  
+            });  
+
+        } catch (e) {  
+            api.setMessageReaction("🥹", event.messageID, () => {}, true);
+            message[_0x4b(3)](_0x4b(7));  
+        }
+    }
 };
