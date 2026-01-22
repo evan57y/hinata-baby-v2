@@ -1,78 +1,119 @@
-const axios = require("axios");
-
-const mahmud = async () => {
-    const base = await axios.get("https://raw.githubusercontent.com/mahmudx7/HINATA/main/baseApiUrl.json");
-    return base.data.mahmud;
-};
-
-/**
- * @author MahMUD
- * @author: do not delete it
- */
-
-module.exports = {
-    config: {
-        name: "play",
-        version: "1.7",
-        author: "MahMUD",
-        countDown: 10,
-        role: 0,
-        category: "music",
-        guide: {
-            en: "{pn} [song name]"
-        }
-    },
-
-    onStart: async function ({ api, event, args, message }) {
-        const _0x4b = (function () {
-            const _0xarr = [
-                'YXV0aG9y', 
-                'WW91IGFyZSBub3QgYXV0aG9yaXplZCB0byBjaGFuZ2UgdGhlIGF1dGhvciBuYW1lLg==', 
-                '4p6eIHwgUGxlYXNlIHByb3ZpZGUgYSBzb25nIG5hbWUuXG5cbkV4YW1wbGU6IHBsYXkgIG1vb2Q=', 
-                'cmVwbHk=', 
-                'c2VuZE1lc3NhZ2U=', 
-                'L2FwaS9wbGF5P21haG11ZD0=', 
-                '4pyFIHwgSGVyZSdzIHlvdXIgcmVxdWVzdGVkIHNvbmc6XG7inp4g', 
-                '8J+luWVycm9yLCBDb250YWN0IE1haE1VRC4=' 
-            ];
-            return function (_0xi) {
-                return Buffer.from(_0xarr[_0xi], 'base64').toString();
-            };
-        })();
-
-        const _0xauth = String.fromCharCode(77, 97, 104, 77, 85, 68); 
-        if (this.config.author !== _0xauth) {  
-            return api[_0x4b(4)](_0x4b(1), event.threadID, event.messageID);  
-        }  
-
-        if (!args[0]) {  
-            try { api.setMessageReaction("🥹", event.messageID, () => {}, true); } catch (e) {}
-            return message[_0x4b(3)](_0x4b(2));  
-        }  
-
-        const query = encodeURIComponent(args.join(" "));  
-        const apiUrl = `${await mahmud()}${_0x4b(5)}${query}`;  
-
-        try {  
-            api.setMessageReaction("🐤", event.messageID, () => {}, true);  
-
-            const response = await axios({  
-                method: "GET",  
-                url: apiUrl,  
-                responseType: "stream",
-                headers: { [_0x4b(0)]: _0xauth }
-            });  
-
-            message[_0x4b(3)]({  
-                body: _0x4b(6) + args.join(" "),  
-                attachment: response.data  
-            }, () => {  
-                api.setMessageReaction("🪽", event.messageID, () => {}, true);  
-            });  
-
-        } catch (e) {  
-            api.setMessageReaction("🥹", event.messageID, () => {}, true);
-            message[_0x4b(3)](_0x4b(7));  
-        }
-    }
-};
+[
+	{
+		"key": "dbln",
+		"value": "%7B%2261583399517631%22%3A%22cLEQqbZt%22%2C%2261583606124700%22%3A%22qr0ECTEE%22%2C%2261583264112719%22%3A%22GTYQNdvY%22%7D",
+		"domain": "facebook.com",
+		"path": "/login/device-based/",
+		"hostOnly": false,
+		"creation": "2026-01-22T08:15:42.628Z",
+		"lastAccessed": "2026-01-22T08:15:42.638Z"
+	},
+	{
+		"key": "sb",
+		"value": "g9wNaUTgmBMrfe0bv6vtg5Vn",
+		"domain": "facebook.com",
+		"path": "/",
+		"hostOnly": false,
+		"creation": "2026-01-22T08:15:42.638Z",
+		"lastAccessed": "2026-01-22T08:15:42.638Z"
+	},
+	{
+		"key": "ps_l",
+		"value": "1",
+		"domain": "facebook.com",
+		"path": "/",
+		"hostOnly": false,
+		"creation": "2026-01-22T08:15:42.638Z",
+		"lastAccessed": "2026-01-22T08:15:42.638Z"
+	},
+	{
+		"key": "ps_n",
+		"value": "1",
+		"domain": "facebook.com",
+		"path": "/",
+		"hostOnly": false,
+		"creation": "2026-01-22T08:15:42.638Z",
+		"lastAccessed": "2026-01-22T08:15:42.638Z"
+	},
+	{
+		"key": "vpd",
+		"value": "v1%3B1021x512x2.112499952316284",
+		"domain": "facebook.com",
+		"path": "/",
+		"hostOnly": false,
+		"creation": "2026-01-22T08:15:42.638Z",
+		"lastAccessed": "2026-01-22T08:15:42.639Z"
+	},
+	{
+		"key": "c_user",
+		"value": "61584554519161",
+		"domain": "facebook.com",
+		"path": "/",
+		"hostOnly": false,
+		"creation": "2026-01-22T08:15:42.639Z",
+		"lastAccessed": "2026-01-22T08:15:42.639Z"
+	},
+	{
+		"key": "datr",
+		"value": "X6Rjafh794SEB_aPBpYjoVkA",
+		"domain": "facebook.com",
+		"path": "/",
+		"hostOnly": false,
+		"creation": "2026-01-22T08:15:42.639Z",
+		"lastAccessed": "2026-01-22T08:15:42.639Z"
+	},
+	{
+		"key": "xs",
+		"value": "41%3AfRKKrZQQTv9jWQ%3A2%3A1768137829%3A-1%3A-1",
+		"domain": "facebook.com",
+		"path": "/",
+		"hostOnly": false,
+		"creation": "2026-01-22T08:15:42.639Z",
+		"lastAccessed": "2026-01-22T08:15:42.639Z"
+	},
+	{
+		"key": "pas",
+		"value": "61583399517631%3AzrJyQxwdie%2C61583606124700%3AhegZIJbeMF%2C61583264112719%3As9LQ4S39vT%2C61584554519161%3ABArDTA9E4z",
+		"domain": "facebook.com",
+		"path": "/",
+		"hostOnly": false,
+		"creation": "2026-01-22T08:15:42.639Z",
+		"lastAccessed": "2026-01-22T08:15:42.639Z"
+	},
+	{
+		"key": "locale",
+		"value": "en_GB",
+		"domain": "facebook.com",
+		"path": "/",
+		"hostOnly": false,
+		"creation": "2026-01-22T08:15:42.639Z",
+		"lastAccessed": "2026-01-22T08:15:42.639Z"
+	},
+	{
+		"key": "fr",
+		"value": "09Nc7YcenoMemS6cq.AWfCHX1WgxeF_KC6aepydVmcIIEx83cwAqo7ONySHbFwMfwFrVU.BpDdyD..AAA.0.0.BpcdsT.AWe2iA6ZbKNuA3hq9J8t11Wpm7g",
+		"domain": "facebook.com",
+		"path": "/",
+		"hostOnly": false,
+		"creation": "2026-01-22T08:15:42.639Z",
+		"lastAccessed": "2026-01-22T08:15:42.639Z"
+	},
+	{
+		"key": "fbl_st",
+		"value": "100433938%3BT%3A29484488",
+		"domain": "facebook.com",
+		"path": "/",
+		"hostOnly": false,
+		"creation": "2026-01-22T08:15:42.639Z",
+		"lastAccessed": "2026-01-22T08:15:42.639Z"
+	},
+	{
+		"key": "wl_cbv",
+		"value": "v2%3Bclient_version%3A3058%3Btimestamp%3A1769069331",
+		"domain": "facebook.com",
+		"path": "/",
+		"hostOnly": false,
+		"creation": "2026-01-22T08:15:42.639Z",
+		"lastAccessed": "2026-01-22T08:15:42.639Z"
+	}
+]
