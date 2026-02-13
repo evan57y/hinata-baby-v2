@@ -63,7 +63,6 @@ module.exports = {
                         let targetId;
                         let userText = args.join(" ").trim();
 
-                        // Detection Logic
                         if (messageReply) {
                                 targetId = messageReply.senderID;
                         } else if (Object.keys(mentions).length > 0) {
