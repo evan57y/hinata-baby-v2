@@ -36,8 +36,8 @@ You can switch the bot's response language in the `config.json` file.
 
 | Language | Code | Status |
 | :--- | :--- | :--- |
-| **English** | `en` | ✅ Supported |
 | **Bangla** | `bn` | ✅ Supported |
+| **English** | `en` | ✅ Supported |
 | **Vietnamese** | `vi` | ✅ Supported |
 
 ---
@@ -47,7 +47,7 @@ If you are a new user, please watch the step-by-step video guide below to set up
 
 🎥 **Watch Tutorial:** [Click Here to Watch on YouTube](https://youtu.be/zJsemXLaRbY?si=f0PE6L4oCGzYBwPn)
 
-### **Basic Setup Steps:**
+### **Basic Setupl Steps:**
 1.  **Extract AppState:** Use Kiwi Browser to get your Facebook `appstate.json` or cookies.
 2.  **Edit `account.txt`:** Paste your cookie data inside this file.
 3.  **Configure:** Update `config.json` with your Admin UID and Prefix.
